@@ -1,2 +1,2 @@
 # hokkien-dictionary
-English-Hokkien Dictionary
+English-Hokkien Dictionary based on Maryknoll data
