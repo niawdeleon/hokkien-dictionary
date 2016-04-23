@@ -24,7 +24,7 @@
                     <thead>
                         <th>English</th>
                         <th>Chinese</th>
-                        <th>Taiwanese</th>
+                        <th>Hokkien</th>
                     </thead>
 
                     <!-- Table Body -->
