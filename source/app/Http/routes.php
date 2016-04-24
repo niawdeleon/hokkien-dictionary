@@ -17,8 +17,15 @@ use App\Entry;
 use Illuminate\Http\Request;
 
 
-Route::get('/', function () {
-    $entries = Entry::where('id', '<', '20')->get();
+Route::get('/', function (Request $request) {
+    //$entries = Entry::where('id', '<', '20')->get();
+
+	$searchTerm = $request->input('searchTerm');
+
+    $entries = DB::table('hokkiendict')
+        ->select(DB::raw("*"))
+        ->whereRaw("MATCH(english, taiwanese, chinese) against (? in natural language mode)", array($searchTerm))
+        ->get();
 
     return view('entries', [
         'entries' => $entries

@@ -3,21 +3,23 @@
 @extends('layouts.app')
 
 @section('content')
+        <div class="panel-body">
+            <!-- Display Validation Errors -->
+            @include('common.errors')
+        </div>
 
-    <!-- Bootstrap Boilerplate... -->
+        <div class="jumbotron">
+            <h1>English-Hokkien Dictionary</h1>
 
-    <div class="panel-body">
-        <!-- Display Validation Errors -->
-        @include('common.errors')
-    </div>
+            <form method="GET">
+                <input type="text" name="searchTerm">
+                <input class="btn btn-lg btn-success" role="button" type="submit" value="Search English">
+            </form>
+        </div>
 
-    @if (count($entries) > 0)
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                Current Entries
-            </div>
-
-            <div class="panel-body">
+        @if (count($entries) > 0)
+        <div class="row marketing">
+            <div class="col-lg-12">
                 <table class="table table-striped entry-table">
 
                     <!-- Table Headings -->
@@ -47,5 +49,10 @@
                 </table>
             </div>
         </div>
-    @endif
+        @endif
+
+        <footer class="footer">
+            <p><a href="/">Go back to Niawdeleon.com</a></p>
+        </footer>
+
 @endsection
