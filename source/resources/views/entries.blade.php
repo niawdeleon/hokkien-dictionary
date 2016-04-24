@@ -52,6 +52,7 @@
         @endif
 
         <footer class="footer">
+            <p>The contents of the dictionary are from the <a href="http://www.taiwanesedictionary.org/">Taiwanese-English Dictionary by Maryknoll Taiwan</a>, which is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 Taiwan License. This software is written by Niaw de Leon under an MIT License using Laravel 5 and Bootstrap frameworks.</p>
             <p><a href="/">Go back to Niawdeleon.com</a></p>
         </footer>
 
