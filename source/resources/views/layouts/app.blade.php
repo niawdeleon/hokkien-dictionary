@@ -31,7 +31,7 @@
         <div class="container">
             <nav>
               <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">&lt; Back to Home</a></li>
+                <li role="presentation" class="active"><a href="/">&lt; Back to Home</a></li>
               </ul>
             </nav>
 
