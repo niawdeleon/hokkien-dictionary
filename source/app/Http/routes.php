@@ -18,13 +18,18 @@ use Illuminate\Http\Request;
 
 
 Route::get('/', function (Request $request) {
-    //$entries = Entry::where('id', '<', '20')->get();
-
 	$searchTerm = $request->input('searchTerm');
 
-    $entries = DB::table('hokkiendict')
+    if (strlen($searchTerm) == 0) {
+        return view('entries');
+    }
+
+    /*$entries = DB::table('hokkiendict')
         ->select(DB::raw("*"))
-        ->whereRaw("MATCH(english, taiwanese, chinese) against (? in natural language mode)", array($searchTerm))
+        ->where('english', 'like', array('%' . $searchTerm . '%'))
+        ->get();*/
+
+    $entries = App\Entry::where('english', 'like', array('%' . $searchTerm . '%'))
         ->get();
 
     return view('entries', [

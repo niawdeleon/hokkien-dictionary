@@ -8,17 +8,19 @@
             @include('common.errors')
         </div>
 
-        <div class="jumbotron">
-            <h1>English-Hokkien Dictionary</h1>
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>English-Hokkien Dictionary</h1>
 
-            <form method="GET">
-                <input type="text" name="searchTerm">
-                <input class="btn btn-lg btn-success" role="button" type="submit" value="Search English">
-            </form>
+                <form method="GET" class="form-group">
+                    <input type="text" name="searchTerm" class="form-control" placeholder="Enter English word">
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Search</button>
+                </form>
+            </div>
         </div>
 
-        @if (count($entries) > 0)
-        <div class="row marketing">
+        @if (isset($entries) && count($entries) > 0)
+        <div class="row">
             <div class="col-lg-12">
                 <table class="table table-striped entry-table">
 
@@ -41,7 +43,7 @@
                                     <div>{{ $entry->chinese }}</div>
                                 </td>
                                 <td class="table-text">
-                                    <div>{{ $entry->taiwanese }}</div>
+                                    <div>{{ $entry->getFormattedTaiwanese() }}</div>
                                 </td>
                             </tr>
                         @endforeach
