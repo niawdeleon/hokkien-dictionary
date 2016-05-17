@@ -24,12 +24,7 @@ Route::get('/', function (Request $request) {
         return view('entries');
     }
 
-    /*$entries = DB::table('hokkiendict')
-        ->select(DB::raw("*"))
-        ->where('english', 'like', array('%' . $searchTerm . '%'))
-        ->get();*/
-
-    $entries = App\Entry::where('english', 'like', array('%' . $searchTerm . '%'))
+    $entries = App\Entry::whereRaw('match (english) against (? in natural language mode)', array($searchTerm))
         ->get();
 
     return view('entries', [
