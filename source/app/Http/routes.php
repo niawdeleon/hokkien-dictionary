@@ -25,6 +25,7 @@ Route::get('/', function (Request $request) {
     }
 
     $entries = App\Entry::whereRaw('match (english) against (? in natural language mode)', array($searchTerm))
+        ->orderByRaw('length(english)')
         ->get();
 
     return view('entries', [
